@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head> 
+        <title>Student Registration Form</title>
+    </head>
+<body>
+<h1>REGISTRATION FORM</h1>
+<form id="userform">
+<label for="name">Name:</label>
+<input type="text" id="name"name="name">
+<br>
+<br>
+<label for="email">Email:</label>
+<input type="email"id="email"name="email">
+<br>
+<br>
+<label for="phone">Phone:</label>
+<input type="tel" id="phone"name="phone">
+<br>
+<br>
+<input type="submit"value="submit">
+</form>
+<script>
+    function validateName(name){
+        if(name == null || name == ""){
+            alert("Name can't be blank!");
+            return false;
+        }
+        if (name.length<3){
+            alert("Name must be at least 3 characters long!");
+            return false;
+        }
+        return true;
+    }
+    function validateForm() {
+        var name = document.getElementById("name").value.trim();
+        var mobile = document.getElementById("phone").value.trim();
+        var email = document.getElementById("email").value.trim();
+        if(!validateName(name)){
+            return false;
+        }
+        if(mobile == null || mobile == ""){
+            alert("Mobile number can't be blank!");
+            return false;
+        }
+        if(mobile.length !== 10) {
+            alert("Mobile number must be exactly 10 digits long!");
+            return false;
+        }
+        for(var i=0;i<mobile.length;i++){
+            if(mobile[i]<'0'||mobile[i]>9){
+                alert("Mobile number must contain digits only!");
+                return false;
+            }
+        }
+        if(!validateEmail(email)){
+            return false;
+        }
+        alert("Form submitted successfully!");
+        return true;
+    }
+    function validateEmail(email){
+        var reg=new RegExp("^[a-zA-Z0-9_.]+@[a-zA-Z0-9.]+$");
+        if(!reg.test(email)){
+            alert("Invalid email address!");
+            return false;
+        }
+        return true;
+    }
+    document.getElementById("userform").addEventListener("submit", function(event){
+        if(!validateForm()){
+            event.preventDefault();
+        }
+    });
+</script>
+</body>
+</html>

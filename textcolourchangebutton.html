@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <body style="background-color: rgb(220, 82, 63);">
+        <button id="button" style="background-color: bisque;">
+            Click Me!
+        </button>
+        <h4 id="text" style="background-color: bisque;">Button was successfully clicked!!<br>
+            Click the button to change the colour of the text....
+        </h4>
+    </body>
+    <script>
+        const button=document.getElementById('button')
+        const textMessage=document.getElementById('text')
+        function handleButtonClick(){
+            textMessage.innerHTML='Button was successfully clicked!!<br>Click the button to change the colour of the text....'
+            textMessage.style.color='green'
+        }
+        button.addEventListener('click',handleButtonClick);
+    </script>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <body style="background-color: rgb(220, 82, 63);">
+        <button id="button1" style="background-color: bisque;">
+            Change First Text
+        </button>
+        <h4 id="text1" style="background-color: bisque;">Button was successfully clicked!!<br>
+            Click the button to change the colour of the text....
+        </h4>
+
+         <button id="button2" style="background-color: bisque;">
+            Change Second Text
+        </button>
+        <h4 id="text2" style="background-color: bisque;">Button was successfully clicked!!<br>
+            Click the button to change the colour of the text....
+        </h4>
+    </body>
+    <script>
+        const button1=document.getElementById('button1')
+        const textMessage1=document.getElementById('text1')
+        function handleFirstButtonClick(){
+            textMessage1.textContent='The first button changed this sentence to green!'
+            textMessage1.style.color='green'
+        }
+        button1.addEventListener('click',handleFirstButtonClick);
+
+        const button2=document.getElementById('button2')
+        const textMessage2=document.getElementById('text2')
+        function handleSecondButtonClick(){
+            textMessage2.textContent='The second button changed this sentence to red!'
+            textMessage2.style.color='red'
+        }
+        button2.addEventListener('click',handleSecondButtonClick);
+    </script>
+</html>
